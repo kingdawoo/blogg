@@ -1,0 +1,36 @@
+.profile {
+    margin-top: 10%;
+    color: white;
+    text-align: center;
+}
+
+.profile-img {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 30px;
+    margin-top: 30px;
+    border: solid 1px white;
+}
+
+.profile-info {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 30px;
+}
+
+.p-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    margin-right: 225px;
+}
+
+.btn-submit {
+    margin-right: 100px;
+}

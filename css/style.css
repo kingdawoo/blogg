@@ -1,0 +1,84 @@
+/* suger på CSS så ganska hårdkodad tyvärr */
+
+body {
+  background-image: url('/blogg/img/space.jpg');
+  margin: 0;
+}
+
+h2 {
+  margin: 30% 0 0 0;
+  float: left;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+  position: relative;
+  float: left;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navigation-bar {
+  background-color: black;
+  overflow: hidden;
+  border-bottom: 3px solid white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.navigation-bar a:not(.btn-right) {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background .2s ease-in-out;
+}
+
+.navigation-bar a:hover {
+  background-color: white;
+  color: black;
+}
+
+.btn-right {
+  float: right;
+  color: white;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background .2s ease-in-out;
+}
+
+.btn-right a:hover {
+  background-color: white;
+}
+
+.img-ball {
+  float: left;
+  margin: 5px 0 0 50px;
+  padding-right: 50px;
+}
+
+.img-profile {
+  float: right;
+  margin-right: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.img-goku {
+  float: right;
+  position: relative;
+  pointer-events: none;
+}
+
+.main {
+  padding: 0 5%;
+}
