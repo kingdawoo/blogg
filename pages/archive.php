@@ -8,15 +8,26 @@ if (!isset($_SESSION['user_id'])) {
 
 require 'include/conn.php';
 
-$sql = "SELECT title, text, img_path, upload_date FROM blog_posts";
-$result = mysqli_query($conn, $sql);
+$sql = "SELECT bp.title, bp.text, bp.img_path, bp.upload_date, uc.username
+        FROM blog_posts bp
+        INNER JOIN user_credentials uc ON bp.uploader_id = uc.id";
+$result = mysqli_query($conn, $sql);  
+
+if (!$result) {
+  printf("Error: %s\n", mysqli_error($conn));
+  exit();
+}
 
 $content = '<div class="content">';
 
 if (mysqli_num_rows($result) > 0) {
-  // output data of each row
   while($row = mysqli_fetch_assoc($result)) {
-    $content .= $row["title"] . " " . $row["text"] . "<img width=200 src=".$row["img_path"].">" . $row["upload_date"] . "<br>";
+    $content .= "<div class='content-item'>" .
+    "<div class='title'>" . $row["title"] . "</div>" . // Titel
+    "<div class='upload-date'>" . "Uploaded " . $row["upload_date"] . " By " . "<span class='username'>".$row["username"]."</span>" . "</div>" . // Datum
+    "<div class='image'>" . "<img width=700px src=".$row["img_path"].">" . "</div>" . //Bild
+    "<div class='text'>" . $row["text"] . "</div>" . // Text
+    "</div>"; 
   }
 } else {
   echo "0 results";

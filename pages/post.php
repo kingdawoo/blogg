@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,14 +37,10 @@ session_start();
     </div>
 
 <?php
-    
-if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
-    exit;
-}
-
 if(isset($_POST['post'])){
     require 'include/conn.php';
+
+    $uploader_id = $_SESSION['user_id'];
 
     $post_title = $_POST["title"];
     
@@ -51,8 +52,8 @@ if(isset($_POST['post'])){
 
     $post_text = $_POST["main-text"];
 
-    $sql = "INSERT INTO blog_posts (title, img_path, text)
-    VALUES ('$post_title', '$post_filepath', '$post_text')";
+    $sql = "INSERT INTO blog_posts (title, img_path, text, uploader_id)
+    VALUES ('$post_title', '$post_filepath', '$post_text', '$uploader_id')";
 
     if (mysqli_query($conn, $sql)) {
         header("Location: archive.php");

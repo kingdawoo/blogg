@@ -1,7 +1,41 @@
-* {
-    color: white;
-}
-
 .content {
     margin-top: 100px;
+    color: white;
+    display: flex;
+    flex-direction: column-reverse;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.content-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #222;
+    padding: 50px;
+    margin: 0 100px 100px;
+    border: solid 3px white;
+}
+
+.content-item .title {
+    font-size: xx-large;
+    margin-bottom: 10px;
+}
+
+.content-item .image {
+    border: solid 1px white;
+    object-fit: cover;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.content-item .text {
+    inline-size: 75%;
+    word-wrap: break-word;
+    white-space: pre-line;
+}
+
+.username {
+    font-size: large;
+    color: orange;
 }
