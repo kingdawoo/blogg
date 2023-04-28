@@ -49,5 +49,6 @@ if(isset($_POST['register'])){
     mysqli_close($conn);
 }
 ?>
+<?php include 'include/footer.php' ?>
 </body>
 </html>

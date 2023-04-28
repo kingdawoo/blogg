@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id'])) {
 
 require 'include/conn.php';
 
-$sql = "SELECT bp.title, bp.text, bp.img_path, bp.upload_date, uc.username
+$sql = "SELECT bp.title, bp.text, bp.img_path, bp.upload_date, uc.username, uc.profile_img
         FROM blog_posts bp
         INNER JOIN user_credentials uc ON bp.uploader_id = uc.id";
 $result = mysqli_query($conn, $sql);  
@@ -24,9 +24,15 @@ if (mysqli_num_rows($result) > 0) {
   while($row = mysqli_fetch_assoc($result)) {
     $content .= "<div class='content-item'>" .
     "<div class='title'>" . $row["title"] . "</div>" . // Titel
-    "<div class='upload-date'>" . "Uploaded " . $row["upload_date"] . " By " . "<span class='username'>".$row["username"]."</span>" . "</div>" . // Datum
+    "<div class='upload-date'>". // Datum
+    "<div class='popup'>Uploaded ".$row["upload_date"]. " By <a href='#' onclick='return false' class='username'>".$row["username"]. // Användarnamn
+    "<span><img width='100px' alt='User Has No Profile Image ):' src=".$row["profile_img"]."></span></a></div>" . "</div>" .  // Profil bild
     "<div class='image'>" . "<img width=700px src=".$row["img_path"].">" . "</div>" . //Bild
     "<div class='text'>" . $row["text"] . "</div>" . // Text
+
+    "<div class='user-box'><a href='#' onclick='return false' class='like'><img width='30px' src='/blogg/img/like.png' alt='Like Icon'></a>•
+    <a href='#' onclick='return false' class='comment'><img width='30px' src='/blogg/img/chat.png' alt='Chat Icon'> 
+    </a></div>" . // Like
     "</div>"; 
   }
 } else {
@@ -50,6 +56,6 @@ mysqli_close($conn);
     <link rel="stylesheet" href="/blogg/css/archive.css">
 </head>
 <body>
-
+<?php include 'include/footer.php' ?>
 </body>
 </html>

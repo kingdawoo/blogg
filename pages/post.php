@@ -65,5 +65,7 @@ if(isset($_POST['post'])){
     mysqli_close($conn);
 }
 ?>
+
+<?php include 'include/footer.php' ?>
 </body>
 </html>

@@ -41,3 +41,8 @@ label, legend {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.error {
+    margin: 0 0 0 50px;
+    color: red;
+}

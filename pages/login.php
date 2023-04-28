@@ -53,5 +53,7 @@ if (isset($_POST['login'])) {
     }
 }
 ?>
+
+<?php include 'include/footer.php' ?>
 </body>
 </html>

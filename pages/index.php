@@ -32,5 +32,7 @@ $pfp_path = $row['profile_img'];
     <h2>Welcome to the Dragon Blog, <?php echo $username; ?></h2>
   </div>
   <img class="img-goku" src="/blogg/img/goku.jpg" alt="Son Goku"> 
+
+  <?php include 'include/footer.php' ?>
 </body>
 </html>

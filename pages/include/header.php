@@ -21,7 +21,6 @@ if(empty($pfp_path)) {
     <img class="img-ball" src="/blogg/img/one_star_ball.jpg" alt="One Star Dragon Ball" width="50px" height="50px">
     <a href="/blogg/pages/index.php">Home</a>
     <a href="/blogg/pages/archive.php">Posts</a>
-    <a href="/blogg/pages/contact.php">Contact</a>
     <a href="/blogg/pages/profile.php">Profile</a>
     <img class="img-profile" id="img-profile" src="/blogg/pages/<?php echo $pfp_path; ?>" alt="Profile Icon Navigation Bar" width="60px" height="60px">
     <a class="btn-right" style="color:red; margin-right: 20px" href="/blogg/pages/logout.php">Logout</a>

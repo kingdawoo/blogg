@@ -82,3 +82,13 @@ p {
 .main {
   padding: 0 5%;
 }
+
+footer {
+  clear: both;
+  position: relative;
+  color: white;
+  background-color: black;
+  border-top: solid 1px white;
+  text-align: center;
+  padding: 10px;
+}
