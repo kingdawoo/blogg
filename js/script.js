@@ -13,14 +13,7 @@ function validateReg() {
         alert("Incorrect email!");
         return false;
     } else {
+        alert("Account created successfully!");
         return true;
-    }
-}
-
-function validateImg() {
-    if (isset($_FILES['profile_img']) && $_FILES['profile_img']['error'] == 0) {
-        return true;
-    } else {
-        return false;
     }
 }
