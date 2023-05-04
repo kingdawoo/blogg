@@ -39,17 +39,26 @@ if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sql = "SELECT id FROM user_credentials WHERE email = '$email' AND password = '$password'";
-    $result = mysqli_query($conn, $sql);
+    $sql = "SELECT password FROM user_credentials WHERE email  = '$email'";
+        $result = mysqli_query($conn, $sql);
+        if ($result && mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            $checkPassword = password_verify($password, $row["password"]);
+            
+            if ($checkPassword == true) {
+                $sql2 = "SELECT id FROM user_credentials WHERE email = '$email'";
+                $result2 = mysqli_query($conn, $sql2);
+            
+                if ($result2 && mysqli_num_rows($result2) > 0) {
+                    $row2 = mysqli_fetch_assoc($result2);
+                    $_SESSION['user_id'] = $row2['id'];
 
-    if ($result && mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        $_SESSION['user_id'] = $row['id'];
-
-        header('Location: index.php');
-        exit;
-    } else {
-        echo '<p class="error">Invalid email or password.</p>';
+                    header('Location: index.php');
+                    exit;
+                }
+            } else {
+            echo '<p class="error">Invalid email or password.</p>';
+        } 
     }
 }
 ?>
